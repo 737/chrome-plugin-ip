@@ -1,0 +1,28 @@
+{
+	"manifest_version": 2,
+	"name": "chrome-pulgin-ip",
+	"version": "1.0.0",
+	"description": "IP address",
+	"icons": {
+		"16": "img/ip.png",
+		"48": "img/ip.png",
+		"128": "img/ip.png"
+	},
+	"browser_action": {
+		"default_icon": "img/ip.png",
+		"default_title": "我是pageAction",
+		"default_popup": "popup/index.html"
+	},
+	"permissions": [
+		"declarativeContent"
+	],
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"content_scripts": [{
+		"matches": ["<all_urls>"],
+		"js": ["lib/jquery.min.js", "index.js"],
+		"run_at": "document_start"
+
+	}]
+}
